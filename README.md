@@ -28,3 +28,18 @@ var result = client.Api("contact_add", new NameValueCollection
  }
 
 ```
+
+
+## Lists List
+
+```csharp
+var result = client.Api("list_list", new NameValueCollection
+{
+    {"ids", "all"}
+});
+
+if (result.IsSuccessful)
+{
+    Console.WriteLine(result.Data);
+}
+```
