@@ -10,7 +10,7 @@ namespace ActiveCampaignNet
     public class ApiResult
     {
         [JsonProperty("result_code")]
-        public string Code { get; set; }
+        public int Code { get; set; }
 
         [JsonProperty("result_message")]
         public string Message { get; set; }
@@ -19,5 +19,7 @@ namespace ActiveCampaignNet
         public string Output { get; set; }
 
         public dynamic Data { get; set; }
+
+        public bool IsSuccessful => Code == 1;
     }
 }
