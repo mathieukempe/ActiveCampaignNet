@@ -52,12 +52,11 @@ namespace ActiveCampaignNet
             {
                 wc.Headers[HttpRequestHeader.ContentType] = "application/x-www-form-urlencoded";
 
-                var output = wc.UploadString(uri, payload);
+                var rawData = wc.UploadString(uri, payload);
 
-                var result = JsonConvert.DeserializeObject<ApiResult>(output);
+                var result = JsonConvert.DeserializeObject<ApiResult>(rawData);
 
-                var converter = new ExpandoObjectConverter();
-                result.Data = JsonConvert.DeserializeObject<ExpandoObject>(output, converter);
+                result.Data = rawData;
 
                 return result;
             }

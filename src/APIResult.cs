@@ -18,7 +18,7 @@ namespace ActiveCampaignNet
         [JsonProperty("result_output")]
         public string Output { get; set; }
 
-        public dynamic Data { get; set; }
+        public string Data { get; set; }
 
         public bool IsSuccessful => Code == 1;
     }
