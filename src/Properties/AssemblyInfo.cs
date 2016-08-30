@@ -6,9 +6,9 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("ActiveCampaignNet")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("ActiveCampaignNet is a .NET class library that provides an easy-to-use interface for the ActiveCampaign web api")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("Mathieu Kempe")]
 [assembly: AssemblyProduct("ActiveCampaignNet")]
 [assembly: AssemblyCopyright("Copyright ©  2016")]
 [assembly: AssemblyTrademark("")]

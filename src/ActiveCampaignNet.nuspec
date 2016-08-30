@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>$id$</id>
+    <version>$version$</version>
+    <title>$title$</title>
+    <authors>$author$</authors>
+    <owners>$author$</owners>
+    <licenseUrl>https://github.com/mathieukempe/HelpScoutNet/blob/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/mathieukempe</projectUrl>    
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>$description$</description>
+    <releaseNotes>Added HelpScountApiException</releaseNotes>
+	<iconUrl>http://github-jobs.s3.amazonaws.com/ee1135c8-ed33-11e4-8499-9b433ae54d8f.png</iconUrl>
+    <copyright>Copyright 2015</copyright>
+    <tags>Helpscout</tags>
+  </metadata>
+</package>
