@@ -43,7 +43,7 @@ namespace ActiveCampaignNet
             return postData.ToString();
         }
 
-        public APIResult Api(string apiAction, NameValueCollection parameters)
+        public ApiResult Api(string apiAction, NameValueCollection parameters)
         {
             var payload = PreparePayload(parameters);
             var uri = CreateBaseUrl(apiAction);
@@ -54,7 +54,7 @@ namespace ActiveCampaignNet
 
                 var output = wc.UploadString(uri, payload);
 
-                var result = JsonConvert.DeserializeObject<APIResult>(output);
+                var result = JsonConvert.DeserializeObject<ApiResult>(output);
 
                 var converter = new ExpandoObjectConverter();
                 result.Data = JsonConvert.DeserializeObject<ExpandoObject>(output, converter);
