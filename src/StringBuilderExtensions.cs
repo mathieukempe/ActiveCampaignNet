@@ -9,9 +9,9 @@ namespace ActiveCampaignNet
         {
             if (sb.Length != 0)
                 sb.Append("&");
-            sb.Append(Uri.EscapeUriString(name));
+            sb.Append(Uri.EscapeDataString(name));
             sb.Append("=");
-            sb.Append(Uri.EscapeUriString(value));
+            sb.Append(Uri.EscapeDataString(value));
         }
     }
 }
