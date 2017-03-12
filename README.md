@@ -14,7 +14,7 @@ ActiveCampaignClient client = new ActiveCampaignClient("<You-api-key>", "https:/
 ```csharp
 var client = new ActiveCampaignClient("<You-api-key>", "https://some-url.api-us1.com");
 
-var result = client.Api("contact_add", new NameValueCollection
+var result = client.Api("contact_add", new Dictionary<string, string>
  {
      {"email", "someemail@gmail.com"},
      {"first_name", "mathieu"},
@@ -33,7 +33,7 @@ var result = client.Api("contact_add", new NameValueCollection
 ## Lists List
 
 ```csharp
-var result = client.Api("list_list", new NameValueCollection
+var result = client.Api("list_list", new Dictionary<string, string>
 {
     {"ids", "all"}
 });

@@ -1,11 +1,9 @@
 ﻿using System;
-using System.Collections.Specialized;
-using System.Dynamic;
-using System.Net;
 using System.Text;
 using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
-using Newtonsoft.Json.Linq;
+using System.Net.Http;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace ActiveCampaignNet
 {
@@ -31,34 +29,27 @@ namespace ActiveCampaignNet
             return $"{_baseUrl}/admin/api.php?api_action={apiAction}&api_key={_apiKey}&api_output=json";
         }
 
-        private string PreparePayload(NameValueCollection payloads)
+        public async Task<ApiResult> ApiAsync(string apiAction, Dictionary<string, string> parameters)
         {
-            StringBuilder postData = new StringBuilder();
-
-            foreach (var keyValue in payloads.AllKeys)
-            {
-                postData.AppendUrlEncoded(keyValue, payloads[keyValue]);
-            }            
-
-            return postData.ToString();
-        }
-
-        public ApiResult Api(string apiAction, NameValueCollection parameters)
-        {
-            var payload = PreparePayload(parameters);
+            //var payload = PreparePayload(parameters);
             var uri = CreateBaseUrl(apiAction);
 
-            using (WebClient wc = new WebClient())
+            using (HttpClient httpClient = new HttpClient())
             {
-                wc.Headers[HttpRequestHeader.ContentType] = "application/x-www-form-urlencoded";
-
-                var rawData = wc.UploadString(uri, payload);
-
-                var result = JsonConvert.DeserializeObject<ApiResult>(rawData);
-
-                result.Data = rawData;
-
-                return result;
+                using (var postContent = new FormUrlEncodedContent(parameters))
+                {
+                    using (HttpResponseMessage response = await httpClient.PostAsync(uri, postContent))
+                    {
+                        response.EnsureSuccessStatusCode(); //throw if httpcode is an error
+                        using (HttpContent content = response.Content)
+                        {
+                            string rawData = await content.ReadAsStringAsync();
+                            var result = JsonConvert.DeserializeObject<ApiResult>(rawData);
+                            result.Data = rawData;
+                            return result;
+                        }
+                    }
+                }
             }
         }
     }
