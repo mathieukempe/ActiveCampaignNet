@@ -7,7 +7,7 @@
     <authors>$author$</authors>
     <owners>$author$</owners>
     <licenseUrl>https://github.com/mathieukempe/ActiveCampaignNet/blob/master/LICENSE</licenseUrl>
-    <projectUrl>https://github.com/mathieukempe</projectUrl>    
+    <projectUrl>https://github.com/Selz/ActiveCampaignNet</projectUrl>    
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>$description$</description>
     <releaseNotes>First version</releaseNotes>
