@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <Description>ActiveCampaignNet</Description>
-    <Authors>Mathieu Kempe, Jing Wu</Authors>
+    <Authors>Mathieu Kempe</Authors>
     <TargetFrameworks>netstandard1.3;net452</TargetFrameworks>
     <AssemblyName>ActiveCampaignNet</AssemblyName>
     <PackageId>ActiveCampaignNet</PackageId>
@@ -13,7 +13,7 @@
     <GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
     <GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
     <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
-    <Version>2.0.0</Version>
+    <Version>2.0.1</Version>
     <Copyright>Copyright ©2017</Copyright>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
   </PropertyGroup>
