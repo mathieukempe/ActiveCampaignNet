@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Text;
 using Newtonsoft.Json;
 using System.Net.Http;
 using System.Collections.Generic;
@@ -11,7 +10,8 @@ namespace ActiveCampaignNet
     {
         private readonly string _apiKey;
         private readonly string _baseUrl;
-      
+        private static readonly HttpClient HttpClient = new HttpClient();
+
         public ActiveCampaignClient(string apiKey, string baseUrl)
         {
             if(string.IsNullOrEmpty(apiKey))
@@ -34,20 +34,17 @@ namespace ActiveCampaignNet
             //var payload = PreparePayload(parameters);
             var uri = CreateBaseUrl(apiAction);
 
-            using (HttpClient httpClient = new HttpClient())
+            using (var postContent = new FormUrlEncodedContent(parameters))
             {
-                using (var postContent = new FormUrlEncodedContent(parameters))
+                using (HttpResponseMessage response = await HttpClient.PostAsync(uri, postContent))
                 {
-                    using (HttpResponseMessage response = await httpClient.PostAsync(uri, postContent))
+                    response.EnsureSuccessStatusCode(); //throw if httpcode is an error
+                    using (HttpContent content = response.Content)
                     {
-                        response.EnsureSuccessStatusCode(); //throw if httpcode is an error
-                        using (HttpContent content = response.Content)
-                        {
-                            string rawData = await content.ReadAsStringAsync();
-                            var result = JsonConvert.DeserializeObject<ApiResult>(rawData);
-                            result.Data = rawData;
-                            return result;
-                        }
+                        string rawData = await content.ReadAsStringAsync();
+                        var result = JsonConvert.DeserializeObject<ApiResult>(rawData);
+                        result.Data = rawData;
+                        return result;
                     }
                 }
             }
