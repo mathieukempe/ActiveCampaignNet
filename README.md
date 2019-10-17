@@ -12,20 +12,25 @@ ActiveCampaignClient client = new ActiveCampaignClient("<You-api-key>", "https:/
 ## Adding a contact
 
 ```csharp
+// define client
 var client = new ActiveCampaignClient("<You-api-key>", "https://some-url.api-us1.com");
 
-var result = client.Api("contact_add", new Dictionary<string, string>
- {
-     {"email", "someemail@gmail.com"},
-     {"first_name", "mathieu"},
-     {"last_name", "kempe"},
-     {"p[1]", "1"}
- });
+// create async method
+public static async void AddContact() {
+  var result = await client.ApiAsync("contact_add", new Dictionary<string, string>
+  {
+      {"email", "someemail@gmail.com"},
+      {"first_name", "mathieu"},
+      {"last_name", "kempe"},
+      {"p[1]", "1"}
+  });
 
- if (result.IsSuccessful)
- {
-     Console.WriteLine(result.Message);
- }
+  if (result.IsSuccessful)
+  {
+      Console.WriteLine(result.Message);
+  }
+}
+
 
 ```
 
@@ -33,13 +38,16 @@ var result = client.Api("contact_add", new Dictionary<string, string>
 ## Lists List
 
 ```csharp
-var result = client.Api("list_list", new Dictionary<string, string>
-{
-    {"ids", "all"}
-});
+public static async void GetList() {
+  var result = await client.ApiAsync("list_list", new Dictionary<string, string>
+  {
+      {"ids", "all"}
+  });
 
-if (result.IsSuccessful)
-{
-    Console.WriteLine(result.Data);
+  if (result.IsSuccessful)
+  {
+      Console.WriteLine(result.Data);
+  }
 }
+
 ```
