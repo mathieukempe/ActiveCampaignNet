@@ -1,4 +1,6 @@
 # ActiveCampaignNet
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fmathieukempe%2FActiveCampaignNet.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Fmathieukempe%2FActiveCampaignNet?ref=badge_shield)
+
 ActiveCampaignNet is a .NET class library that provides an easy-to-use interface for the http://www.activecampaign.com/ web api
 
 # Examples
@@ -43,3 +45,7 @@ if (result.IsSuccessful)
     Console.WriteLine(result.Data);
 }
 ```
+
+
+## License
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fmathieukempe%2FActiveCampaignNet.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Fmathieukempe%2FActiveCampaignNet?ref=badge_large)
